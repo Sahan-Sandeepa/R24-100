@@ -21,9 +21,8 @@
 </head>
 
 <body>
-
    <!-- Start Header -->
-   <header style="background-color: #c3cfe2; padding: 45px 0;">
+   <header style="background: linear-gradient(135deg, #db0000, #000000); padding: 45px 0;">
       <nav class="navbar navbar-default navbar-alt" role="navigation">
          <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,12 +35,11 @@
                </button>
                <a class="navbar-brand to-top" rel="home" href="#"
                   style="display: flex; align-items: center; border-radius: 50%;">
-                  <img
-                     src="img/DALL·E 2024-10-21 17.56.10 - A logo representing a movie cataloging, reviewing, and recommendation platform tailored for a Sri Lankan audience. The logo incorporates a film reel o.jpg"
-                     style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; margin-right: 10px;"
+                  <img src="img/Screenshot_2024-10-21_190543-removebg-preview.png"
+                     style="height: 50px; width: 60px; border-radius: 50%; object-fit: cover; margin-right: 10px;"
                      alt="Visual" class="logo-big">
                   <span
-                     style="font-size: 24px; color: #000080; font-weight: bold;  padding-left: 40%;">FamilyFrame</span>
+                     style="font-size: 24px; color: #ffffff; font-weight: bold;  padding-left: 40%;">FamilyFrame</span>
                </a>
             </div>
 
@@ -50,31 +48,31 @@
                <ul class="nav navbar-nav navbar-right">
                   <li>
                      <a class="to-top"
-                        style="color: #000080; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
+                        style="color: #ffffff; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
                         Home
                      </a>
                   </li>
                   <li class="to-section">
                      <a href="#services"
-                        style="color: #000080; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
+                        style="color: #ffffff; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
                         Research
                      </a>
                   </li>
                   <li class="to-section">
                      <a href="#team"
-                        style="color: #000080; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
+                        style="color: #ffffff; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
                         Team
                      </a>
                   </li>
                   <li class="to-section">
                      <a href="#testimonials"
-                        style="color: #000080; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
+                        style="color: #ffffff; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
                         Documents
                      </a>
                   </li>
                   <li class="to-section">
                      <a href="#contact"
-                        style="color: #000080; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
+                        style="color: #ffffff; font-size: 18px; padding: 0px 15px; transition: all 0.3s ease;">
                         Contact
                      </a>
                   </li>
@@ -885,25 +883,22 @@
                   <div id="message"></div>
                   <form method="post" action="php/send_email.php" id="contactform">
                      <fieldset>
-                        <input name="name" type="text" id="name" placeholder="Name" required
-                           style="width: 100%; margin-bottom: 10px;" />
-                        <input name="email" type="email" id="email" placeholder="Email" required
-                           style="width: 100%; margin-bottom: 10px;" />
-                        <input name="subject" type="text" id="subject" placeholder="Subject" required
-                           style="width: 100%; margin-bottom: 10px;" />
+                        <input name="name" type="text" id="name" placeholder="Name" required />
+                        <input name="email" type="email" id="email" placeholder="Email" required />
+                        <input name="subject" type="text" id="subject" placeholder="Subject" required />
                      </fieldset>
                      <fieldset>
-                        <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" required
-                           style="width: 100%; margin-bottom: 10px;"></textarea>
+                        <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message"
+                           required></textarea>
                      </fieldset>
-                     <input type="submit" class="submit" id="submit" value="Send Message"
-                        style="width: 100%; padding: 10px;" />
+                     <input type="submit" class="submit" id="submit" value="Send Message" />
                   </form>
                </div>
             </div>
          </div>
       </div>
    </section>
+
 
    <!-- End Contact Form Section -->
 
@@ -1008,7 +1003,6 @@
          margin: 0;
          padding: 0;
          overflow-x: hidden;
-         /* Prevent horizontal scrollbars */
       }
 
       .img-parallax-fullscreen {
@@ -1037,17 +1031,44 @@
          border-radius: 10px;
          width: 60%;
       }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+         border: 2px solid black;
+         padding: 10px;
+         width: 100%;
+         margin-bottom: 10px;
+         border-radius: 5px;
+         box-sizing: border-box;
+      }
+
+      .submit {
+         background-color: #28a745;
+         color: white;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         padding: 10px;
+         border-radius: 5px;
+      }
+
+      .submit:hover {
+         background-color: #218838;
+      }
    </style>
+
    <!-- Start Footer -->
-   <footer id="footer" style="background-color: #c3cfe2; padding: 20px 0;"> <!-- Navy Blue Background -->
+   <footer id="footer" style="background: linear-gradient(135deg, #db0000, #000000); padding: 20px 0;">
+      <!-- Navy Blue Background -->
       <!-- End Footer Widgets -->
 
       <div class="footer-copyright">
          <div class="container">
             <div class="row">
                <div class="col-md-12 text-center">
-                  <h3 style="color: #000080;">FamilyFrame</h3> <!-- Popcorn Yellow for title -->
-                  <p style="color: #000080;">
+                  <h3 style="color: #ffffff;">FamilyFrame</h3> <!-- Popcorn Yellow for title -->
+                  <p style="color: #ffffff;">
                      All Rights Reserved. Copyright © 2024
                      <a href="http://templatestock.co" target="_blank" style="color: #FF4500;"></a>
                   </p>
@@ -1063,8 +1084,6 @@
       <i class="icon ion-chevron-up" style="color: #FFD700;"></i> <!-- Popcorn Yellow for back-to-top icon -->
    </a>
    <!-- End Back To Top -->
-
-
    </div>
    <!-- End Site Wrapper -->
    <!-- jQuery -->
