@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
    <!-- Start Header -->
    <header style="background: linear-gradient(135deg, #db0000, #000000); padding: 45px 0;">
       <nav class="navbar navbar-default navbar-alt" role="navigation">
@@ -39,7 +40,7 @@
                      style="height: 50px; width: 60px; border-radius: 50%; object-fit: cover; margin-right: 10px;"
                      alt="Visual" class="logo-big">
                   <span
-                     style="font-size: 24px; color: #ffffff; font-weight: bold;  padding-left: 40%;">FamilyFrame</span>
+                     style="font-size: 24px; color: #ffffff; font-weight: bold; padding-left: 40%;">FamilyFrame</span>
                </a>
             </div>
 
@@ -76,23 +77,22 @@
                         Contact
                      </a>
                   </li>
+                  <!-- Search form -->
+                  <li class="to-section" style="display: flex; align-items: center;">
+                     <div class="search-section" style="margin-left: 15px;">
+                        <input type="text" id="document-search" placeholder="Search Document..."
+                           style="padding: 6px; width: 180px;" />
+                        <button id="search-btn"
+                           style="padding: 6px 15px; background-color: #4CAF50; color: white;">Search</button>
+                     </div>
+                  </li>
                </ul>
             </div>
             <!-- /.navbar-collapse -->
          </div>
          <!-- /.container -->
       </nav>
-      <!-- Include Owl Carousel CSS -->
-      <link rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-      <link rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-      <!-- Include jQuery (necessary for Owl Carousel) -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <!-- Include Owl Carousel JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
    </header>
-
    <!-- End Header -->
 
    <!-- Start Home Revolution Slider Parallax Section -->
@@ -589,7 +589,7 @@
                <div class="effect wow fadeInUp" style="transition: transform 0.3s ease;">
                   <div class="img">
                      <img src="img/poornap-1677220261.jpeg"
-                        style="height: 190px; width: 150px; border-radius: 50%; margin-bottom: 15px;"
+                        style="height: 190px; width: 170px; border-radius: 50%; margin-bottom: 15px;"
                         class="img-responsive" alt="Ms. Poorna Panduwawala​" />
                   </div>
                   <div class="member-info">
@@ -875,7 +875,7 @@
 
                <div class="overlay-content">
                   <div id="message"></div>
-                  <form method="post" action="php/send_email.php" id="contactform">
+                  <form id="contactform">
                      <fieldset>
                         <input name="name" type="text" id="name" placeholder="Name" required />
                         <input name="email" type="email" id="email" placeholder="Email" required />
@@ -887,6 +887,10 @@
                      </fieldset>
                      <input type="submit" class="submit" id="submit" value="Send Message" />
                   </form>
+                  <!-- Notification -->
+                  <div id="notification"
+                     style="display:none; padding: 10px; background-color: #4caf50; color: white; text-align: center; margin-top: 20px;">
+                     Message Sent Successfully!</div>
                </div>
             </div>
          </div>
@@ -984,7 +988,14 @@
          border: 1px solid #16a085;
       }
    </style>
-
+   <style>
+      .card-details {
+         position: relative;
+         background-color: #ffffff;
+         border-radius: 15px;
+         transition: all 1.9s ease-in-out;
+      }
+   </style>
    <style>
       body {
          margin: 0;
@@ -1102,7 +1113,54 @@
          }
       });
    </script>
+   <script>
+      document.getElementById('contactform').onsubmit = function (event) {
+         event.preventDefault();
+         var formData = new FormData(this);
+         fetch('php/send_email.php', {
+            method: 'POST',
+            body: formData
+         })
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById('notification').style.display = 'block';
+               document.getElementById('notification').innerHTML = 'Message Sent Successfully!';
+               document.getElementById('contactform').reset();
+               setTimeout(function () {
+                  document.getElementById('notification').style.display = 'none';
+               }, 3000);
+            })
+            .catch(error => {
+               document.getElementById('notification').style.display = 'block';
+               document.getElementById('notification').style.backgroundColor = '#f44336';
+               document.getElementById('notification').innerHTML = 'Failed to send the message. Please try again.';
+               setTimeout(function () {
+                  document.getElementById('notification').style.display = 'none';
+               }, 5000);
+            });
+      };
+   </script>
+   <script>
+      document.getElementById('search-btn').addEventListener('click', function () {
+         const searchQuery = document.getElementById('document-search').value.toLowerCase().trim();
+         const documentCards = document.querySelectorAll('#testimonials .card-container');
+         let found = false;
+         documentCards.forEach(card => {
+            const title = card.querySelector('.card-details h4').innerText.toLowerCase();
+            if (title.includes(searchQuery)) {
+               card.scrollIntoView({ behavior: 'smooth' });
+               card.classList.add('card-details');
+               found = true;
+            } else {
+               card.classList.remove('card-details');
+            }
+         });
 
+         if (!found) {
+            alert('Document not found!');
+         }
+      });
+   </script>
    <script>
       $(document).ready(function () {
          $('#client-slider').owlCarousel({
