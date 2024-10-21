@@ -34,10 +34,14 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                </button>
-               <a class="navbar-brand to-top" rel="home" href="#" style="display: flex; align-items: center;">
-                  <img src="img/assets/Logo.png" style="height: 50px; width: auto; margin-right: 10px;" alt="Visual"
-                     class="logo-big">
-                  <span style="font-size: 24px; color: #000080; font-weight: bold;">FamilyFrame</span>
+               <a class="navbar-brand to-top" rel="home" href="#"
+                  style="display: flex; align-items: center; border-radius: 50%;">
+                  <img
+                     src="img/DALL·E 2024-10-21 17.56.10 - A logo representing a movie cataloging, reviewing, and recommendation platform tailored for a Sri Lankan audience. The logo incorporates a film reel o.jpg"
+                     style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; margin-right: 10px;"
+                     alt="Visual" class="logo-big">
+                  <span
+                     style="font-size: 24px; color: #000080; font-weight: bold;  padding-left: 40%;">FamilyFrame</span>
                </a>
             </div>
 
@@ -101,10 +105,11 @@
                <ul>
                   <!-- SLIDE 1 -->
                   <li data-transition="" data-slotamount="7" data-masterspeed="2000"
-                     data-thumb="img/backgrounds/movie-bg-1.jpg" data-delay="10000" data-saveperformance="on"
-                     data-title="Family Movie Nights">
-                     <img src="img/backgrounds/movie-bg-1.jpg" alt="movie-background" data-bgposition="center top"
-                        data-bgfit="cover" data-bgrepeat="no-repeat">
+                     data-thumb="img/15141-family-movie-night-gettyimages-evgenyatamanen.jpg" data-delay="10000"
+                     data-saveperformance="on" data-title="Family Movie Nights">
+                     <img src="img/Enjoy-Movies-Your-Way-Family-Movies-on-Apple-TVmain-image.jpeg"
+                        alt="movie-background" data-bgposition="center top" data-bgfit="cover"
+                        data-bgrepeat="no-repeat">
                      <!-- Home Heading -->
                      <div class="tp-caption sft" data-x="center" data-y="260" data-speed="1200" data-start="1100"
                         data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1"
@@ -340,8 +345,8 @@
          </div>
          <div class="row">
             <div class="col-md-6 text-left about-text wow fadeInUp" style="animation-delay: 0.3s;">
-               <div class="img" style="margin-bottom: 20px;">
-                  <img src="img/system.jpg" class="img-responsive" alt=""
+               <div class="img" style="margin-bottom: 30px;">
+                  <img src="img/Screenshot 2024-10-21 174852.png" class="img-responsive" alt=""
                      style="border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" />
                </div>
             </div>
@@ -863,36 +868,43 @@
 
    <!-- Start Contact Form Section -->
    <section id="contact">
-      <div class="container">
+      <div class="container-fluid">
          <div class="row">
             <div class="col-md-12 text-center">
                <h3 class="section-title wow fadeInUp">Contact us</h3>
                <p class="subheading wow fadeInUp"> Let's Start a conversation</p>
             </div>
-            <div class="col-md-7 wow fadeInUp">
-               <div id="message"></div>
-               <!-- Contact Form will be functional only on your server. Upload to your server when testing. -->
-               <form method="post" action="php/send_email.php" id="contactform">
-                  <fieldset>
-                     <input name="name" type="text" id="name" placeholder="Name" required />
-                     <input name="email" type="email" id="email" placeholder="Email" required />
-                     <input name="subject" type="text" id="subject" placeholder="Subject" required />
-                  </fieldset>
-                  <fieldset>
-                     <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message"
-                        required></textarea>
-                  </fieldset>
-                  <input type="submit" class="submit" id="submit" value="Send Message" />
-               </form>
-            </div>
-            <div class="col-md-5 wow fadeInLeft">
+
+            <div class="col-md-12 wow fadeInUp" style="position: relative; overflow: hidden;">
                <div class="img">
-                  <img src="img/pictlarge.jpg" class="img-parallax-fullscreen" alt="Contact Image" />
+                  <img src="img/HomepageHeader-careersFAQ-1024x395.jpg" class="img-parallax-fullscreen"
+                     alt="Contact Image" />
+               </div>
+
+               <div class="overlay-content">
+                  <div id="message"></div>
+                  <form method="post" action="php/send_email.php" id="contactform">
+                     <fieldset>
+                        <input name="name" type="text" id="name" placeholder="Name" required
+                           style="width: 100%; margin-bottom: 10px;" />
+                        <input name="email" type="email" id="email" placeholder="Email" required
+                           style="width: 100%; margin-bottom: 10px;" />
+                        <input name="subject" type="text" id="subject" placeholder="Subject" required
+                           style="width: 100%; margin-bottom: 10px;" />
+                     </fieldset>
+                     <fieldset>
+                        <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" required
+                           style="width: 100%; margin-bottom: 10px;"></textarea>
+                     </fieldset>
+                     <input type="submit" class="submit" id="submit" value="Send Message"
+                        style="width: 100%; padding: 10px;" />
+                  </form>
                </div>
             </div>
          </div>
       </div>
    </section>
+
    <!-- End Contact Form Section -->
 
    <!-- Start Quote Section -->
@@ -905,7 +917,7 @@
                <!-- Logo Section -->
                <div class="logo-container" style="margin-bottom: 30px;">
                   <img src="img/QR.png" alt="Logo" class="logo-img"
-                     style="width: 150px; height: auto; border-radius: 50%; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+                     style="width: 150px; height: auto; border-radius: 10%; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
                </div>
 
                <!-- Heading and Subtitle -->
@@ -922,15 +934,15 @@
                   <a href="https://www.facebook.com/profile.php?id=61559983466985&mibextid=LQQJ4d" target="_blank"
                      style="margin: 0 10px;">
                      <img src="img/backgrounds/fb.png" alt="Facebook"
-                        style="width: 40px; height: 40px; border-radius: 50%; transition: transform 0.3s;">
+                        style="width: 40px; height: 40px; border-radius: 20%; transition: transform 0.3s;">
                   </a>
                   <a href="" target="_blank" style="margin: 0 10px;">
                      <img src="img/backgrounds/insta.png" alt="Instagram"
-                        style="width: 40px; height: 40px; border-radius: 50%; transition: transform 0.3s;">
+                        style="width: 40px; height: 40px; border-radius: 20%; transition: transform 0.3s;">
                   </a>
                   <a href="" target="_blank" style="margin: 0 10px;">
                      <img src="img/backgrounds/twitter.png" alt="Twitter"
-                        style="width: 40px; height: 40px; border-radius: 50%; transition: transform 0.3s;">
+                        style="width: 40px; height: 40px; border-radius: 20%; transition: transform 0.3s;">
                   </a>
                </div>
 
@@ -991,7 +1003,41 @@
       }
    </style>
 
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         overflow-x: hidden;
+         /* Prevent horizontal scrollbars */
+      }
 
+      .img-parallax-fullscreen {
+         width: 100vw;
+         height: auto;
+         object-fit: cover;
+      }
+
+      .col-md-12 {
+         padding: 0;
+      }
+
+      .container-fluid {
+         padding: 0;
+         margin: 0;
+      }
+
+      .overlay-content {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         z-index: 1;
+         background-color: rgba(255, 255, 255, 0.8);
+         padding: 20px;
+         border-radius: 10px;
+         width: 60%;
+      }
+   </style>
    <!-- Start Footer -->
    <footer id="footer" style="background-color: #c3cfe2; padding: 20px 0;"> <!-- Navy Blue Background -->
       <!-- End Footer Widgets -->
@@ -1093,4 +1139,5 @@
    <script type="text/javascript" src="js/plugins/counterup.min.js"></script>
    <script type="text/javascript" src="js/scripts.js"></script>
 </body>
+
 </html>
