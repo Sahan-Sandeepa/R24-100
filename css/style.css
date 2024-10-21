@@ -90,7 +90,7 @@ a:focus, a:active, button::-moz-focus-inner, input[type="reset"]::-moz-focus-inn
         padding: 0 90px;
     }
 }
-@media (min-width: 768px) and (max-width: 992px)) {
+@media (min-width: 768px) and (max-width: 992px) {
     .container { 
         width: 100%;
         padding: 0 120px;
@@ -2366,8 +2366,7 @@ blockquote strong {
 #contact input, select, textarea{ 
     font-family: 'Exo', sans-serif;
     font-weight: 400;
-	width: 100%; 
-	max-width: ;
+	width: 100%;
 	padding: 12.9px; 
 	color: #1c1c1c; 
 	background: #f2f2f2; 
@@ -3694,8 +3693,7 @@ pre {
 .comment-form input, select, textarea{ 
     font-family: 'Exo', sans-serif;
     font-weight: 400;
-	width: 100%; 
-	max-width: ;
+	width: 100%;
 	padding: 12.9px; 
 	color: #1c1c1c; 
 	background: #f2f2f2; 
@@ -3848,9 +3846,6 @@ pre {
 	display: block;
 	margin: -22px auto 0 auto;
 }
-
-
-
 .card {
     background-color: #f2f2f2;
     border-radius: 10px;
