@@ -511,7 +511,7 @@
 
    <!-- Start Research Problem Section -->
    <section id="fun-facts" class="parallax-section-5"
-      style="padding: 80px 0; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/research-background.jpg') center/cover no-repeat; color: #fff;">
+      style="padding: 80px 0; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))">
       <div class="container">
          <div class="col-md-12 text-center wow fadeInUp">
             <h3 class="section-title"
@@ -881,16 +881,17 @@
                         <input name="email" type="email" id="email" placeholder="Email" required />
                         <input name="subject" type="text" id="subject" placeholder="Subject" required />
                      </fieldset>
-                     <fieldset>
-                        <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message"
-                           required></textarea>
-                     </fieldset>
-                     <input type="submit" class="submit" id="submit" value="Send Message" />
+                     <div class="col-md-12">
+                        <textarea class="form-control" name="message" rows="10" id="message-field" required=""
+                           placeholder="Message"></textarea>
+                     </div>
+                     <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                        <button class="submit" type="submit">Send Message</button>
+                     </div>
                   </form>
-                  <!-- Notification -->
-                  <div id="notification"
-                     style="display:none; padding: 10px; background-color: #4caf50; color: white; text-align: center; margin-top: 20px;">
-                     Message Sent Successfully!</div>
                </div>
             </div>
          </div>
@@ -922,8 +923,7 @@
 
                <!-- Social Media Icons Section -->
                <div class="social-media-icons" style="margin-bottom: 40px;">
-                  <a href="" target="_blank"
-                     style="margin: 0 10px;">
+                  <a href="" target="_blank" style="margin: 0 10px;">
                      <img src="img/backgrounds/fb.png" alt="Facebook"
                         style="width: 40px; height: 40px; border-radius: 20%; transition: transform 0.3s;">
                   </a>
@@ -944,7 +944,6 @@
                      Download Now
                   </a>
                </div>
-
             </div>
          </div>
       </div>
@@ -1045,6 +1044,20 @@
          box-sizing: border-box;
       }
 
+      .loading,
+      .error-message,
+      .sent-message {
+         display: none;
+         /* Hide by default */
+      }
+
+      .loading.active,
+      .error-message.active,
+      .sent-message.active {
+         display: block;
+         /* Show only when active */
+      }
+
       .submit {
          background-color: #28a745;
          color: white;
@@ -1101,12 +1114,12 @@
          var navContact = document.getElementById("nav-contact");
 
          if (window.scrollY > 50) {
-            brandName.style.color = "#000000";
-            navHome.style.color = "#000000";
-            navResearch.style.color = "#000000";
-            navTeam.style.color = "#000000";
-            navDocuments.style.color = "#000000";
-            navContact.style.color = "#000000";
+            brandName?.style.color = "#000000";
+            navHome?.style.color = "#000000";
+            navResearch?.style.color = "#000000";
+            navTeam?.style.color = "#000000";
+            navDocuments?.style.color = "#000000";
+            navContact?.style.color = "#000000";
          } else {
             brandName.style.color = "#FFD700";
             navHome.style.color = "#FFD700";
@@ -1117,32 +1130,35 @@
          }
       });
    </script>
-   <script>
-      document.getElementById('contactform').onsubmit = function (event) {
-         event.preventDefault();
-         var formData = new FormData(this);
-         fetch('php/send_email.php', {
-            method: 'POST',
-            body: formData
-         })
-            .then(response => response.text())
-            .then(data => {
-               document.getElementById('notification').style.display = 'block';
-               document.getElementById('notification').innerHTML = 'Message Sent Successfully!';
-               document.getElementById('contactform').reset();
-               setTimeout(function () {
-                  document.getElementById('notification').style.display = 'none';
-               }, 3000);
-            })
-            .catch(error => {
-               document.getElementById('notification').style.display = 'block';
-               document.getElementById('notification').style.backgroundColor = '#f44336';
-               document.getElementById('notification').innerHTML = 'Failed to send the message. Please try again.';
-               setTimeout(function () {
-                  document.getElementById('notification').style.display = 'none';
-               }, 5000);
-            });
-      };
+   <!-- EmailJS Script -->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+   <script type="text/javascript">
+      (function () {
+         emailjs.init("1XPjrI6X1E29lPqSk");
+      })();
+
+      window.onload = function () {
+         document.getElementById('contactform').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Show loading indicator
+            document.querySelector('.loading').style.display = 'block';
+            document.querySelector('.error-message').style.display = 'none';
+            document.querySelector('.sent-message').style.display = 'none';
+
+            // Send form data via EmailJS
+            emailjs.sendForm('service_29kwe7q', 'template_k34emm7', this)
+               .then(() => {
+                  document.querySelector('.loading').style.display = 'none';
+                  document.querySelector('.sent-message').style.display = 'block';
+                  console.log('SUCCESS!');
+               }, (error) => {
+                  document.querySelector('.loading').style.display = 'none';
+                  document.querySelector('.error-message').style.display = 'block';
+                  console.error('FAILED...', error);
+               });
+         });
+      }
    </script>
    <script>
       document.getElementById('search-btn').addEventListener('click', function () {
@@ -1166,7 +1182,7 @@
       });
    </script>
    <script>
-      $(document).ready(function () {
+      document.ready(function () {
          $('#client-slider').owlCarousel({
             loop: true,
             margin: 10,
@@ -1207,4 +1223,5 @@
    <script type="text/javascript" src="js/plugins/counterup.min.js"></script>
    <script type="text/javascript" src="js/scripts.js"></script>
 </body>
+
 </html>

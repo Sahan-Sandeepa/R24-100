@@ -284,30 +284,30 @@
     /* -------------------
     Contact form
     ---------------------*/
-    $('#contactform').submit(function(){
-		var action = $(this).attr('action');
-		$("#message").slideUp(250,function() {
-            $('#message').hide();
-            $('#submit')
-                .after('<img src="../img/assets/contact-form-loader.gif" class="loader" />')
-                .attr('disabled','disabled');
-            $.post(action, {
-                name: $('#name').val(),
-                email: $('#email').val(),
-                subject: $('#subject').val(),
-                comments: $('#comments').val(),
-            },
-                function(data){
-                    document.getElementById('message').innerHTML = data;
-                    $('#message').slideDown(250);
-                    $('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
-                    $('#submit').removeAttr('disabled');
-                    if(data.match('success') != null) $('#contactform').slideUp(850, 'easeInOutExpo');
-                }
-            );
-		});
-		return false;
-	});
+    // $('#contactform').submit(function(){
+	// 	var action = $(this).attr('action');
+	// 	$("#message").slideUp(250,function() {
+    //         $('#message').hide();
+    //         $('#submit')
+    //             .after('<img src="../img/assets/contact-form-loader.gif" class="loader" />')
+    //             .attr('disabled','disabled');
+    //         $.post(action, {
+    //             name: $('#name').val(),
+    //             email: $('#email').val(),
+    //             subject: $('#subject').val(),
+    //             comments: $('#comments').val(),
+    //         },
+    //             function(data){
+    //                 document.getElementById('message').innerHTML = data;
+    //                 $('#message').slideDown(250);
+    //                 $('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
+    //                 $('#submit').removeAttr('disabled');
+    //                 if(data.match('success') != null) $('#contactform').slideUp(850, 'easeInOutExpo');
+    //             }
+    //         );
+	// 	});
+	// 	return false;
+	// });
     /* -------------------
     Subscribe form
     ---------------------*/
